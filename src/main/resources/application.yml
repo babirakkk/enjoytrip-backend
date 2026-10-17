@@ -1,9 +1,17 @@
 spring:
   application:
-    name=enjoytrip
-  # ??: DB ?? ?? ????
-  autoconfigure:
-    exclude: org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+    name: enjoytrip
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:3306/enjoytrip
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
 
 
 # swagger
