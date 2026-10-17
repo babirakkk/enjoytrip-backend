@@ -1,0 +1,15 @@
+spring:
+  application:
+    name=enjoytrip
+  # ??: DB ?? ?? ????
+  autoconfigure:
+    exclude: org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration
+
+
+# swagger
+springdoc:
+  api-docs:
+    path: /api
+  swagger-ui:
+    url: /api
+    path: /api
