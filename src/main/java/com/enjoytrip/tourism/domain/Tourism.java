@@ -1,6 +1,7 @@
 package com.enjoytrip.tourism.domain;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,6 +42,7 @@ public class Tourism {
 	private String lclsSystm1;
 	private String lclsSystm2;
 	private String lclsSystm3;
+	private LocalDateTime lastSyncedAt;
 
 	public Tourism(
 			Long contentId,
@@ -58,7 +60,8 @@ public class Tourism {
 			String lDongSignguCd,
 			String lclsSystm1,
 			String lclsSystm2,
-			String lclsSystm3
+			String lclsSystm3,
+			LocalDateTime lastSyncedAt
 	) {
 		this.contentId = contentId;
 		this.title = title;
@@ -76,5 +79,6 @@ public class Tourism {
 		this.lclsSystm1 = lclsSystm1;
 		this.lclsSystm2 = lclsSystm2;
 		this.lclsSystm3 = lclsSystm3;
+		this.lastSyncedAt = lastSyncedAt;
 	}
 }

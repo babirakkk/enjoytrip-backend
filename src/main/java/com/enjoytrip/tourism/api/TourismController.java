@@ -1,5 +1,7 @@
 package com.enjoytrip.tourism.api;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.enjoytrip.tourism.application.TourismService;
+import com.enjoytrip.tourism.domain.Tourism;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,10 +23,16 @@ public class TourismController {
 
 	private final TourismService tourismService;
 
-	@Operation(summary = "전체 관광지 데이터를 불러오는 API")
-	@GetMapping()
-	public ResponseEntity<Void> getAllTourismList() {
-		tourismService.getTourismList();
+	@Operation(summary = "전체 관광지 데이터를 불러오고 DB에 저장하는 API")
+	@PostMapping()
+	public ResponseEntity<Void> saveAllTourismList() {
+		tourismService.saveTourismList();
 		return ResponseEntity.ok().build();
+	}
+
+	@Operation(summary = "DB에 저장된 관광지 목록 조회")
+	@GetMapping()
+	public ResponseEntity<List<Tourism>> getAllTourism() {
+		return ResponseEntity.ok(tourismService.getAllTourism());
 	}
 }

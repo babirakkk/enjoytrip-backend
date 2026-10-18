@@ -1,6 +1,8 @@
 package com.enjoytrip.tourism.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 import com.enjoytrip.tourism.domain.Tourism;
@@ -49,7 +51,8 @@ public record TourismApiResponse(Response response) {
 			String lDongSignguCd,
 			String lclsSystm1,
 			String lclsSystm2,
-			String lclsSystm3
+			String lclsSystm3,
+			LocalDateTime lastSyncedAt
 	) {
 		public Tourism toEntity() {
 			return new Tourism(
@@ -68,7 +71,8 @@ public record TourismApiResponse(Response response) {
 					lDongSignguCd,
 					lclsSystm1,
 					lclsSystm2,
-					lclsSystm3
+					lclsSystm3,
+					LocalDateTime.now(ZoneId.of("Asia/Seoul"))
 			);
 		}
 	}

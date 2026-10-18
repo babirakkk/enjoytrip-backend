@@ -24,7 +24,7 @@ public class TourismService {
 	private final String baseUrl = "http://apis.data.go.kr/B551011/KorService2/areaBasedList2";
 	private final TourismRepository tourismRepository;
 
-	public void getTourismList() {
+	public void saveTourismList() {
 		TourismApiResponse result = restClient.get()
 				.uri(baseUrl + "?serviceKey=" + apiKey + "&MobileOS=ETC&MobileApp=enjoytrip&_type=json")
 				.retrieve()
@@ -35,5 +35,9 @@ public class TourismService {
 				.filter(tourism -> !tourismRepository.existsByContentId(tourism.getContentId()))
 				.toList();
 		tourismRepository.saveAll(tourList);
+	}
+
+	public List<Tourism> getAllTourism() {
+		return tourismRepository.findAll();
 	}
 }
