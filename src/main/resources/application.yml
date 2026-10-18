@@ -12,8 +12,6 @@ spring:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
-
-
 # swagger
 springdoc:
   api-docs:
@@ -21,3 +19,8 @@ springdoc:
   swagger-ui:
     url: /api
     path: /api
+
+# external API
+external:
+  tour-api:
+    base_url: http://apis.data.go.kr/B551011/KorService2

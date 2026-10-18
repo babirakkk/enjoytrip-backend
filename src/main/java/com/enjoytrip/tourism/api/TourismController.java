@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.enjoytrip.tourism.application.TourismService;
-import com.enjoytrip.tourism.domain.Tourism;
 import com.enjoytrip.tourism.dto.TourismResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,14 +17,14 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/tourism")
+@RequestMapping("/api/tourism")
 @Tag(name = "Tourism API", description = "한국관광공사 국문 관광정보 api를 호출해 결과를 받아오는 api")
 public class TourismController {
 
 	private final TourismService tourismService;
 
 	@Operation(summary = "전체 관광지 데이터를 불러오고 DB에 저장하는 API")
-	@PostMapping()
+	@PostMapping("/sync")
 	public ResponseEntity<Void> saveAllTourismList() {
 		tourismService.saveTourismList();
 		return ResponseEntity.ok().build();

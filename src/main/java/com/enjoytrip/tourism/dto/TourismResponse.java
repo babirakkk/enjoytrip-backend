@@ -1,7 +1,6 @@
 package com.enjoytrip.tourism.dto;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import com.enjoytrip.tourism.domain.Tourism;
 
