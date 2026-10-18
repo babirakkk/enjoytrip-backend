@@ -51,8 +51,7 @@ public record TourismApiResponse(Response response) {
 			String lDongSignguCd,
 			String lclsSystm1,
 			String lclsSystm2,
-			String lclsSystm3,
-			LocalDateTime lastSyncedAt
+			String lclsSystm3
 	) {
 		public Tourism toEntity() {
 			return new Tourism(

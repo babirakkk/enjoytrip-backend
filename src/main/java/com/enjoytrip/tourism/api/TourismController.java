@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.enjoytrip.tourism.application.TourismService;
 import com.enjoytrip.tourism.domain.Tourism;
+import com.enjoytrip.tourism.dto.TourismResponse;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -32,7 +33,7 @@ public class TourismController {
 
 	@Operation(summary = "DB에 저장된 관광지 목록 조회")
 	@GetMapping()
-	public ResponseEntity<List<Tourism>> getAllTourism() {
+	public ResponseEntity<List<TourismResponse>> getAllTourism() {
 		return ResponseEntity.ok(tourismService.getAllTourism());
 	}
 }

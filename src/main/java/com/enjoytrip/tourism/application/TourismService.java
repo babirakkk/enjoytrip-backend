@@ -9,6 +9,7 @@ import org.springframework.web.client.RestClient;
 import com.enjoytrip.tourism.dao.TourismRepository;
 import com.enjoytrip.tourism.domain.Tourism;
 import com.enjoytrip.tourism.dto.TourismApiResponse;
+import com.enjoytrip.tourism.dto.TourismResponse;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +38,9 @@ public class TourismService {
 		tourismRepository.saveAll(tourList);
 	}
 
-	public List<Tourism> getAllTourism() {
-		return tourismRepository.findAll();
+	public List<TourismResponse> getAllTourism() {
+		return tourismRepository.findAll().stream()
+				.map(TourismResponse::from)
+				.toList();
 	}
 }
