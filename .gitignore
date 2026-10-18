@@ -1,3 +1,6 @@
+.env
+docs/
+
 HELP.md
 .gradle
 build/
