@@ -81,4 +81,23 @@ public class Tourism {
 		this.lclsSystm3 = lclsSystm3;
 		this.lastSyncedAt = lastSyncedAt;
 	}
+
+	public void updateFrom(Tourism tourism) {
+		this.title = tourism.getTitle();
+		this.addr = tourism.getAddr();
+		this.contentTypeId = tourism.getContentTypeId();
+		this.originalImage = tourism.getOriginalImage();
+		this.thumbnailImage = tourism.getThumbnailImage();
+		this.longitude = tourism.getLongitude();
+		this.latitude = tourism.getLatitude();
+		this.mapLevel = tourism.getMapLevel();
+		this.tel = tourism.getTel();
+		this.zipCode = tourism.getZipCode();
+		this.lDongRegnCd = tourism.getLDongRegnCd();
+		this.lDongSignguCd = tourism.getLDongSignguCd();
+		this.lclsSystm1 = tourism.getLclsSystm1();
+		this.lclsSystm2 = tourism.getLclsSystm2();
+		this.lclsSystm3 = tourism.getLclsSystm3();
+		this.lastSyncedAt = tourism.getLastSyncedAt();
+	}
 }
